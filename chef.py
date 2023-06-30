@@ -1,4 +1,4 @@
-from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.agents import create_pandas_dataframe_agent
@@ -15,44 +15,45 @@ openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 # Ingredients input
 ingredients = st.text_area("Enter ingredients list")
 
-st.divider()
-col1, col2 = st.columns(2)
+if len(openai_api_key) > 0:
+    st.divider()
+    col1, col2 = st.columns(2)
 
-# LLM setup
-model_name = "gpt-3.5-turbo"
-os.environ["OPENAI_API_KEY"] = openai_api_key
-llm = OpenAI(model_name=model_name, temperature=0.0)
+    # LLM setup
+    model_name = "gpt-3.5-turbo"
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 
-# Recipe Generator 
-col1.markdown("#### New Recipe")
-template = """
-        Task: Generate Healthy Recipes with Nutrition Facts based on a list of ingredients
-        Ingredient List: {ingredients}"""
+    # Recipe Generator 
+    col1.markdown("#### New Recipe")
+    template = """
+            Task: Generate Healthy Recipes with Nutrition Facts based on a list of ingredients
+            Ingredient List: {ingredients}"""
 
-# Recipe Generator Button
-if col1.button("Run", key="prompt_chain_button"):
-    with st.spinner("Running"):
-        prompt = PromptTemplate(
-            input_variables=["ingredients"],
-            template=template,
-        )
-        chain = LLMChain(llm=llm, prompt=prompt)
-        output = chain.run({"ingredients": ingredients})
-        col1.info(output)
+    # Recipe Generator Button
+    if col1.button("Run", key="prompt_chain_button"):
+        with st.spinner("Running"):
+            prompt = PromptTemplate(
+                input_variables=["ingredients"],
+                template=template,
+            )
+            chain = LLMChain(llm=llm, prompt=prompt)
+            output = chain.run({"ingredients": ingredients})
+            col1.info(output)
 
-# Read CSV
-df = pd.read_csv('nutrition.csv')
+    # Read CSV
+    df = pd.read_csv('nutrition.csv')
 
-# Nutrition Facts Generator
-col2.markdown("#### Ingredients List Nutrition Facts")
+    # Nutrition Facts Generator
+    col2.markdown("#### Ingredients List Nutrition Facts")
 
-# Nutrition Facts Button
-if col2.button("Run", key="toolkit_agent_button"):
-    with st.spinner("Running"):
-        agent = create_pandas_dataframe_agent(OpenAI(temperature=0, model_name="gpt-3.5-turbo"), df, verbose=True)
-        instructions = """Search for the first instance of the ingredient name in the dataset."""
-        output = agent.run(f"Calculate the nutrition facts for this list of ingredients: {ingredients}")
-        col2.info(output)
+    # Nutrition Facts Button
+    if col2.button("Run", key="toolkit_agent_button"):
+        with st.spinner("Running"):
+            agent = create_pandas_dataframe_agent(ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo"), df, verbose=True)
+            instructions = """Search for the first instance of the ingredient name in the dataset."""
+            output = agent.run(f"Calculate the nutrition facts for this list of ingredients: {ingredients}")
+            col2.info(output)
 
 st.divider()
 
