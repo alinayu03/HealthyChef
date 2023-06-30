@@ -9,12 +9,33 @@ import streamlit as st
 # Title
 st.markdown("## Healthy Chef")
 
-# OpenAI API Key
-openai_api_key = ""
-openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+st.divider()
+
+# Nutrition Search
+st.markdown("## Nutrition Search")
+
+# Read CSV
+df = pd.read_csv('nutrition.csv')
+
+# Search
+search_query = st.text_input("Enter a search query")
+column_to_search = st.selectbox("Select a column to search", df.columns)
+
+# Nutrition Search Button
+if st.button("Search"):
+    filtered_rows = df[df[column_to_search].str.contains(
+        search_query, case=False)]
+    st.write(filtered_rows)
+
+# Display dataset
+st.dataframe(df)
 
 # Ingredients input
 ingredients = st.text_area("Enter ingredients list")
+
+# OpenAI API Key
+openai_api_key = ""
+openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
 if len(openai_api_key) > 0:
     st.divider()
@@ -42,9 +63,6 @@ if len(openai_api_key) > 0:
             output = chain.run({"ingredients": ingredients})
             col1.info(output)
 
-    # Read CSV
-    df = pd.read_csv('nutrition.csv')
-
     # Nutrition Facts Generator
     col2.markdown("#### Ingredients List Nutrition Facts")
 
@@ -55,19 +73,3 @@ if len(openai_api_key) > 0:
             instructions = """Search for the first instance of the ingredient name in the dataset."""
             output = agent.run(f"Calculate the nutrition facts for this list of ingredients: {ingredients}")
             col2.info(output)
-
-st.divider()
-
-# Nutrition Search
-st.markdown("## Nutrition Search")
-search_query = st.text_input("Enter a search query")
-column_to_search = st.selectbox("Select a column to search", df.columns)
-
-# Nutrition Search Button
-if st.button("Search"):
-    filtered_rows = df[df[column_to_search].str.contains(
-        search_query, case=False)]
-    st.write(filtered_rows)
-
-# Display dataset
-st.dataframe(df)
