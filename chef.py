@@ -10,6 +10,7 @@ import streamlit as st
 st.markdown("## Healthy Chef")
 
 # OpenAI API Key
+openai_api_key = ""
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
 # Ingredients input
