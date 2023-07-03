@@ -45,7 +45,6 @@ col1, col2 = st.columns(2)
 
 # LLM setup
 model_name = "gpt-3.5-turbo"
-os.environ["OPENAI_API_KEY"] = openai_api_key
 llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 
 # Recipe Generator 
