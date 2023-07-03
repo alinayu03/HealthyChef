@@ -34,7 +34,7 @@ st.dataframe(df)
 openai_api_key = st.secrets["openai_api_key"]
 
 # User input OpenAI API Key
-openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+# openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
 # Set key
 os.environ["OPENAI_API_KEY"] = openai_api_key
