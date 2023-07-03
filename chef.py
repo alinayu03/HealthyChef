@@ -30,9 +30,6 @@ if st.button("Search"):
 # Display dataset
 st.dataframe(df)
 
-# Ingredients input
-ingredients = st.text_area("Enter ingredients list")
-
 # OpenAI API Key
 openai_api_key = ""
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
