@@ -31,7 +31,10 @@ if st.button("Search"):
 st.dataframe(df)
 
 # OpenAI API Key
-openai_api_key = ""
+st.write(
+    "Has environment variables been set:",
+    os.environ["OPENAI_API_KEY"] == st.secrets["openai_api_key"],
+)
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
 if len(openai_api_key) > 0:
