@@ -39,6 +39,8 @@ openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 
 if len(openai_api_key) > 0:
     st.divider()
+    # Ingredients input
+    ingredients = st.text_area("Enter ingredients list")
     col1, col2 = st.columns(2)
 
     # LLM setup
