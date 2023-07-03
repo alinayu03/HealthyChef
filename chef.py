@@ -30,12 +30,14 @@ if st.button("Search"):
 # Display dataset
 st.dataframe(df)
 
-# OpenAI API Key
-os.environ["OPENAI_API_KEY"] = st.secrets["openai_api_key"]
-st.write(
-    "Has environment variables been set:",
-    os.environ["OPENAI_API_KEY"] == st.secrets["openai_api_key"],
-)
+# Secret OpenAI API Key
+openai_api_key = st.secrets["openai_api_key"]
+
+# User input OpenAI API Key
+openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+
+# Set key
+os.environ["OPENAI_API_KEY"] = openai_api_key
 
 st.divider()
 # Ingredients input
