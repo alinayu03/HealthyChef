@@ -55,7 +55,7 @@ low_sodium = col2.checkbox("Low-sodium")
 ingredients = col1.text_area("Ingredients")
 
 # LLM setup
-repo_id = "tiiuae/falcon-40b-instruct"
+repo_id = "CalderaAI/30B-Lazarus"
 model_name = "gpt-3.5-turbo"
 # llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 llm = HuggingFaceHub(
