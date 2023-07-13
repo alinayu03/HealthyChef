@@ -39,25 +39,41 @@ openai_api_key = st.secrets["openai_api_key"]
 os.environ["OPENAI_API_KEY"] = openai_api_key
 
 st.divider()
+
+# Optional Preferences
+meal_type = st.radio("Meal Type", ["Breakfast", "Lunch", "Dinner", "Snack"])
+culture = st.text_input("Culture")
+high_protein = st.checkbox("High-protein")
+low_carb = st.checkbox("Low-carb")
+sugar_free = st.checkbox("Sugar-free")
+low_fat = st.checkbox("Low-fat")
+low_sodium = st.checkbox("Low-sodium")
+
 # Ingredients input
 ingredients = st.text_area("Enter ingredients list")
-col1, col2 = st.columns(2)
 
 # LLM setup
 model_name = "gpt-3.5-turbo"
 llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 
 # Recipe Generator 
-col1.markdown("#### New Recipe")
+st.markdown("#### New Recipe")
 template = """
-        Task: Generate Healthy Recipes with Nutrition Facts based on a list of ingredients
-        Ingredient List: {ingredients}"""
+        Task: Generate A Healthy Recipe with Nutrition Facts based on a list of ingredients and optional preferences
+        Ingredient List: {ingredients}
 
-if "outputs" not in st.session_state:
-    st.session_state.outputs = []
+        Optional Preferences:
+        Meal Type: {meal_type}
+        Culture: {culture}
+        Dietary Restrictions:
+        - High-protein: {high_protein}
+        - Low-carb: {low_carb}
+        - Sugar-free: {sugar_free}
+        - Low-fat: {low_fat}
+        - Low-sodium: {low_sodium}"""
 
 # Recipe Generator Button
-if col1.button("Run", key="prompt_chain_button"):
+if st.button("Run", key="prompt_chain_button"):
     with st.spinner("Running"):
         prompt = PromptTemplate(
             input_variables=["ingredients"],
@@ -65,19 +81,8 @@ if col1.button("Run", key="prompt_chain_button"):
         )
         chain = LLMChain(llm=llm, prompt=prompt)
         output = chain.run({"ingredients": ingredients})
-        col1.info(output)
+        st.info(output)
 
-col2.markdown("#### Saved Recipes")
-
-if col2.button("Save", key="save-button"):
-    with st.spinner("Running"):
-        if output:
-            st.session_state.outputs.append(output)
-            col2.info("Recipe saved!")
-
-for output in st.session_state.outputs:
-    col2.info(output)
-    
 # # Nutrition Facts Generator
 # col2.markdown("#### Ingredients List Nutrition Facts")
 
