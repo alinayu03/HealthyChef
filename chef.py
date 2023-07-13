@@ -114,11 +114,9 @@ st.dataframe(df)
 
 # Nutrition Info
 st.markdown("## Additional Resources")
-st.markdown(
-    """### Here are some additional resources listed by topic. We hope that the following resources can empower you. However, this information is not intended to replace the advice of a medical professional. If you have any questions or concerns about your nutritional needs, you should talk to a doctor, nurse or dietitian. Be sure to talk to your cancer care team about any problems you’re having so they can help you manage them.
 
-
-
+st.write(
+    """Here are some additional resources listed by topic. We hope that the following resources can empower you. However, this information is not intended to replace the advice of a medical professional. If you have any questions or concerns about your nutritional needs, you should talk to a doctor, nurse or dietitian. Be sure to talk to your cancer care team about any problems you’re having so they can help you manage them.
 
 Managing Cancer Treatment Side-effects that affect nutrition: https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq#_177.
 
