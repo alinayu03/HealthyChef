@@ -55,11 +55,11 @@ low_sodium = col2.checkbox("Low-sodium")
 ingredients = col1.text_area("Ingredients")
 
 # LLM setup
-repo_id = "google/flan-t5-xxl"
+repo_id = "tiiuae/falcon-40b-instruct"
 model_name = "gpt-3.5-turbo"
 # llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 llm = HuggingFaceHub(
-    repo_id=repo_id, model_kwargs={"temperature": 0.5, "max_length": 164}
+    repo_id=repo_id, model_kwargs={"temperature": 0.5}
 )
 
 # Recipe Generator 
