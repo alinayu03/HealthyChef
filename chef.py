@@ -17,7 +17,7 @@ with st.expander("Introduction and Instructions"):
 
     Unsure about what to cook next? This site features a recipe generator. Below, you can input ingredients you receive from our food pantries to get inspired for your next meal. 
 
-    Below, you will also find nutrition lookup for individual food items and nutrition education resources.
+    Under that, you will also find nutrition lookup for individual food items and nutrition education resources.
     """)
 
 st.divider()
@@ -129,7 +129,7 @@ st.dataframe(df)
 
 # Recommended daily macros
 
-st.markdown("### Daily Recommended Macros")
+st.write("Daily Recommended Macros")
 image = "macros.jpg"
 st.image(image, use_column_width=True)
 
