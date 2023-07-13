@@ -1,7 +1,6 @@
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-from langchain.agents import create_pandas_dataframe_agent
 import pandas as pd
 import os
 import streamlit as st
@@ -65,13 +64,17 @@ if col1.button("Run", key="prompt_chain_button"):
         output = chain.run({"ingredients": ingredients})
         col1.info(output)
 
-# Nutrition Facts Generator
-col2.markdown("#### Ingredients List Nutrition Facts")
-
-# Nutrition Facts Button
-if col2.button("Run", key="toolkit_agent_button"):
+if col2.button("Save", key="save-button"):
     with st.spinner("Running"):
-        agent = create_pandas_dataframe_agent(ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo"), df, verbose=True)
-        instructions = """Search for the first instance of the ingredient name in the dataset."""
-        output = agent.run(f"Calculate the nutrition facts for this list of ingredients: {ingredients}")
-        col2.info(output)
+        col2.write(output)
+
+# # Nutrition Facts Generator
+# col2.markdown("#### Ingredients List Nutrition Facts")
+
+# # Nutrition Facts Button
+# if col2.button("Run", key="toolkit_agent_button"):
+#     with st.spinner("Running"):
+#         agent = create_pandas_dataframe_agent(ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo"), df, verbose=True)
+#         instructions = """Search for the first instance of the ingredient name in the dataset."""
+#         output = agent.run(f"Calculate the nutrition facts for this list of ingredients: {ingredients}")
+#         col2.info(output)
