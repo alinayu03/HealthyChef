@@ -60,7 +60,7 @@ meal_type = col2.radio(
     "Meal Type", ["Any", "Breakfast", "Lunch", "Dinner", "Snack"])
 
 # LLM setup
-repo_id = "google/flan-ul2"
+repo_id = "mosaicml/mpt-30b-chat"
 # model_name = "gpt-3.5-turbo"
 # llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 llm = HuggingFaceHub(
