@@ -10,25 +10,6 @@ st.markdown("## Healthy Chef")
 
 st.divider()
 
-# Nutrition Search
-st.markdown("## Nutrition Search")
-
-# Read CSV
-df = pd.read_csv('nutrition.csv')
-
-# Search
-search_query = st.text_input("Enter a search query")
-column_to_search = st.selectbox("Select a column to search", df.columns)
-
-# Nutrition Search Button
-if st.button("Search"):
-    filtered_rows = df[df[column_to_search].str.contains(
-        search_query, case=False)]
-    st.write(filtered_rows)
-
-# Display dataset
-st.dataframe(df)
-
 # Secret OpenAI API Key
 openai_api_key = st.secrets["openai_api_key"]
 
@@ -51,13 +32,13 @@ low_fat = ""
 low_sodium = ""
 
 # Optional Preferences
-meal_type = st.radio("Meal Type", ["Breakfast", "Lunch", "Dinner", "Snack"])
-culture = st.text_input("Culture")
-high_protein = st.checkbox("High-protein")
-low_carb = st.checkbox("Low-carb")
-sugar_free = st.checkbox("Sugar-free")
-low_fat = st.checkbox("Low-fat")
-low_sodium = st.checkbox("Low-sodium")
+meal_type = st.sidebar.radio("Meal Type", ["Breakfast", "Lunch", "Dinner", "Snack"])
+culture = st.sidebar.text_input("Culture")
+high_protein = st.sidebar.checkbox("High-protein")
+low_carb = st.sidebar.checkbox("Low-carb")
+sugar_free = st.sidebar.checkbox("Sugar-free")
+low_fat = st.sidebar.checkbox("Low-fat")
+low_sodium = st.sidebar.checkbox("Low-sodium")
 
 # Ingredients input
 ingredients = st.text_area("Enter ingredients list")
@@ -105,13 +86,26 @@ if st.button("Run", key="prompt_chain_button"):
         output = chain.run(variables)
         st.info(output)
 
-# # Nutrition Facts Generator
-# col2.markdown("#### Ingredients List Nutrition Facts")
+# Nutrition Search
+st.markdown("## Nutrition Search")
 
-# # Nutrition Facts Button
-# if col2.button("Run", key="toolkit_agent_button"):
-#     with st.spinner("Running"):
-#         agent = create_pandas_dataframe_agent(ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo"), df, verbose=True)
-#         instructions = """Search for the first instance of the ingredient name in the dataset."""
-#         output = agent.run(f"Calculate the nutrition facts for this list of ingredients: {ingredients}")
-#         col2.info(output)
+# Read CSV
+df = pd.read_csv('nutrition.csv')
+
+# Search
+search_query = st.text_input("Enter a search query")
+column_to_search = st.selectbox("Select a column to search", df.columns)
+
+# Nutrition Search Button
+if st.button("Search"):
+    filtered_rows = df[df[column_to_search].str.contains(
+        search_query, case=False)]
+    st.write(filtered_rows)
+
+# Display dataset
+st.dataframe(df)
+
+# Nutrition Info
+st.markdown("## Additional Resources")
+st.markdown(
+    "### https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label")
