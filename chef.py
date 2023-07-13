@@ -20,8 +20,6 @@ with st.expander("Introduction and Instructions"):
     Under that, you will also find nutrition lookup for individual food items and nutrition education resources.
     """)
 
-st.divider()
-
 # Secret OpenAI API Key
 huggingfacehub_api_token = st.secrets["huggingfacehub_api_token"]
 
@@ -107,6 +105,8 @@ if st.button("Create New Recipe", key="prompt_chain_button"):
         output = chain.run(variables)
         st.info(output)
 
+st.divider
+
 # Nutrition Search
 st.markdown("## Nutrition Search")
 
@@ -133,7 +133,9 @@ st.write("Daily Recommended Macronutrients")
 image = "macros.jpg"
 st.image(image, use_column_width=True)
 
-# Nutrition Info
+st.divider
+
+# Additional info
 st.markdown("## Additional Resources")
 
 st.write(
