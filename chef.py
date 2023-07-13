@@ -48,7 +48,7 @@ low_fat = col2.checkbox("Low-fat")
 low_sodium = col2.checkbox("Low-sodium")
 
 # Ingredients input
-ingredients = col1.text_area("Enter ingredients list")
+ingredients = col1.text_area("Ingredients")
 
 # LLM setup
 model_name = "gpt-3.5-turbo"
