@@ -40,14 +40,15 @@ os.environ["OPENAI_API_KEY"] = openai_api_key
 
 st.divider()
 
-# # init options
-# meal_type = ""
-# culture = ""
-# high_protein = ""
-# low_carb = ""
-# sugar_free = ""
-# low_fat = ""
-# low_sodium = ""
+# init options
+ingredients = ""
+meal_type = ""
+culture = ""
+high_protein = ""
+low_carb = ""
+sugar_free = ""
+low_fat = ""
+low_sodium = ""
 
 # Optional Preferences
 meal_type = st.radio("Meal Type", ["Breakfast", "Lunch", "Dinner", "Snack"])
@@ -64,8 +65,6 @@ ingredients = st.text_area("Enter ingredients list")
 # LLM setup
 model_name = "gpt-3.5-turbo"
 llm = ChatOpenAI(model_name=model_name, temperature=0.0)
-
-st.write(meal_type)
 
 # Recipe Generator 
 st.markdown("#### New Recipe")
@@ -86,9 +85,10 @@ template = """
 # Recipe Generator Button
 if st.button("Run", key="prompt_chain_button"):
     with st.spinner("Running"):
+        input_variables = ["ingredients", "meal_type", "culture",
+                           "high_protein", "low_carb", "sugar_free", "low_fat", "low_sodium"]
         prompt = PromptTemplate(
-            input_variables=["ingredients", "meal_type", "culture",
-                             "high_protein", "low_carb", "sugar_free", "low_fat", "low_sodium"],
+            input_variables=input_variables,
             template=template,
         )
         variables = {
