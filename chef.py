@@ -120,8 +120,14 @@ st.write(
 
 Managing Cancer Treatment Side-effects that affect nutrition: https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq#_177.
 
-Information on nutrition: “https://www.cancer.org/cancer/survivorship/coping/nutrition/benefits.html” (2022). American Cancer Society. 
+Information on nutrition: https://www.cancer.org/cancer/survivorship/coping/nutrition/benefits.html” (2022). American Cancer Society. 
 
-Pamphlet from the American Cancer Society “https://www.cancer.org/content/dam/cancer-org/cancer-control/en/booklets-flyers/nutrition-for-the-patient-with-cancer-during-treatment.pdf.
+Pamphlet from the American Cancer Society https://www.cancer.org/content/dam/cancer-org/cancer-control/en/booklets-flyers/nutrition-for-the-patient-with-cancer-during-treatment.pdf.
 
-Your body needs a healthy diet to function at its best. This is even more important if you have cancer. Learn more here.https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label""")
+Information on reading nutrition facts: https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label
+
+Recipes for people with cancer: https://www.mskcc.org/experience/patient-support/nutrition-cancer/recipes#sort=relevancy&f:@marketing_recipe_symptoms=[Fatigue]
+
+Your body needs a healthy diet to function at its best. This is even more important if you have cancer. 
+
+""")
