@@ -12,22 +12,8 @@ What you eat affects how you feel, and eating healthy and enough helps your body
 
 We know that eating well can be challenging when you have cancer as it may become difficult to follow your usual diet, you might develop side effects that affect your appetite once you start treatment, or it might become difficult financially to access healthy groceries. The Food to Overcome Outcomes Disparities (FOOD) Program through the Immigrant Health and Cancer Disparities Service at Memorial Sloan Kettering aims to provide you with the nutritional support to guide you during your cancer journey and reduce nutrition gaps among the medically underserved.
 
-Unsure about what to cook next? This site features a recipe generator built by one of our interns, Alina Yu, a Computer Science major at Harvard. Below, you can input ingredients you receive from our food pantries to get inspired for your next meal. 
-
-Here are some additional resources listed by topic. We hope that the following resources can empower you. However, this information is not intended to replace the advice of a medical professional. If you have any questions or concerns about your nutritional needs, you should talk to a doctor, nurse or dietitian. Be sure to talk to your cancer care team about any problems you’re having so they can help you manage them.
-
-
-
-
-Managing Cancer Treatment Side-effects that affect nutrition: “Treatment Side Effects'' in Nutrition in Cancer Care (2022). National Cancer Institute.
-
-Information on nutrition: “Benefits of good nutrition during cancer treatment” (2022). American Cancer Society. 
-
-Pamphlet from the American Cancer Society “Nutrition for person with Cancer - During Treatment” (2022) American Cancer Society.
-
-Healthy Diet During Cancer Treatment | How to Eat Well
-
-Your body needs a healthy diet to function at its best. This is even more important if you have cancer. Learn more here.""")
+Unsure about what to cook next? This site features a recipe generator. Below, you can input ingredients you receive from our food pantries to get inspired for your next meal. 
+""")
 
 st.divider()
 
@@ -129,4 +115,15 @@ st.dataframe(df)
 # Nutrition Info
 st.markdown("## Additional Resources")
 st.markdown(
-    "### https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label")
+    """### Here are some additional resources listed by topic. We hope that the following resources can empower you. However, this information is not intended to replace the advice of a medical professional. If you have any questions or concerns about your nutritional needs, you should talk to a doctor, nurse or dietitian. Be sure to talk to your cancer care team about any problems you’re having so they can help you manage them.
+
+
+
+
+Managing Cancer Treatment Side-effects that affect nutrition: https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq#_177.
+
+Information on nutrition: “https://www.cancer.org/cancer/survivorship/coping/nutrition/benefits.html” (2022). American Cancer Society. 
+
+Pamphlet from the American Cancer Society “https://www.cancer.org/content/dam/cancer-org/cancer-control/en/booklets-flyers/nutrition-for-the-patient-with-cancer-during-treatment.pdf.
+
+Your body needs a healthy diet to function at its best. This is even more important if you have cancer. Learn more here.https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label""")
