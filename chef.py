@@ -40,6 +40,15 @@ os.environ["OPENAI_API_KEY"] = openai_api_key
 
 st.divider()
 
+# init options
+meal_type = ""
+culture = ""
+high_protein = ""
+low_carb = ""
+sugar_free = ""
+low_fat = ""
+low_sodium = ""
+
 # Optional Preferences
 meal_type = st.radio("Meal Type", ["Breakfast", "Lunch", "Dinner", "Snack"])
 culture = st.text_input("Culture")
