@@ -53,6 +53,8 @@ template = """
         Task: Generate Healthy Recipes with Nutrition Facts based on a list of ingredients
         Ingredient List: {ingredients}"""
 
+output = ""
+
 # Recipe Generator Button
 if col1.button("Run", key="prompt_chain_button"):
     with st.spinner("Running"):
@@ -64,6 +66,7 @@ if col1.button("Run", key="prompt_chain_button"):
         output = chain.run({"ingredients": ingredients})
         col1.info(output)
 
+col2.markdown("#### Saved Recipes")
 if col2.button("Save", key="save-button"):
     with st.spinner("Running"):
         col2.write(output)
