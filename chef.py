@@ -9,13 +9,15 @@ from langchain import HuggingFaceHub
 # Title
 st.markdown("# Healthy Chef 🧑‍🍳🍴")
 
-with st.expander("Introduction"):
+with st.expander("Introduction and Instructions"):
     st.write("""
     What you eat affects how you feel, and eating healthy and enough helps your body function at its best, especially when you have cancer. Proper nutrition is a key part of your cancer treatment and recovery. During treatment, you might need more calories and protein to help your body maintain weight, heal as quickly as possible, and fight infection. 
 
     We know that eating well can be challenging when you have cancer as it may become difficult to follow your usual diet, you might develop side effects that affect your appetite once you start treatment, or it might become difficult financially to access healthy groceries. The Food to Overcome Outcomes Disparities (FOOD) Program through the Immigrant Health and Cancer Disparities Service at Memorial Sloan Kettering aims to provide you with the nutritional support to guide you during your cancer journey and reduce nutrition gaps among the medically underserved.
 
     Unsure about what to cook next? This site features a recipe generator. Below, you can input ingredients you receive from our food pantries to get inspired for your next meal. 
+
+    Below, you will also find nutrition lookup for individual food items and nutrition education resources.
     """)
 
 st.divider()
@@ -68,7 +70,6 @@ llm = HuggingFaceHub(
 )
 
 # Recipe Generator 
-st.markdown("#### New Recipe")
 template = """
         Task: Generate A Healthy Recipe with Nutrition Facts based on a list of ingredients and optional preferences
         Ingredient List: {ingredients}
@@ -84,7 +85,7 @@ template = """
         - Low-sodium: {low_sodium}"""
 
 # Recipe Generator Button
-if st.button("Run", key="prompt_chain_button"):
+if st.button("Create New Recipe", key="prompt_chain_button"):
     with st.spinner("Running"):
         input_variables = ["ingredients", "meal_type", "culture",
                            "high_protein", "low_carb", "sugar_free", "low_fat", "low_sodium"]
@@ -128,7 +129,7 @@ st.dataframe(df)
 
 # Recommended daily macros
 
-st.markdown("## Daily Recommended Macros")
+st.markdown("### Daily Recommended Macros")
 image = "macros.jpg"
 st.image(image, use_column_width=True)
 
