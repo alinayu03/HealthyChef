@@ -65,15 +65,19 @@ if col1.button("Run", key="prompt_chain_button"):
         )
         chain = LLMChain(llm=llm, prompt=prompt)
         output = chain.run({"ingredients": ingredients})
-        st.session_state.outputs.append(output)
         col1.info(output)
 
 col2.markdown("#### Saved Recipes")
+
 if col2.button("Save", key="save-button"):
     with st.spinner("Running"):
-        for output in st.session_state.outputs:
-            col2.info(output)
+        if output:
+            st.session_state.outputs.append(output)
+            col2.info("Recipe saved!")
 
+for output in st.session_state.outputs:
+    col2.info(output)
+    
 # # Nutrition Facts Generator
 # col2.markdown("#### Ingredients List Nutrition Facts")
 
