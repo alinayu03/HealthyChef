@@ -87,11 +87,22 @@ template = """
 if st.button("Run", key="prompt_chain_button"):
     with st.spinner("Running"):
         prompt = PromptTemplate(
-            input_variables=["ingredients"],
+            input_variables=["ingredients", "meal_type", "culture",
+                             "high_protein", "low_carb", "sugar_free", "low_fat", "low_sodium"],
             template=template,
         )
+        variables = {
+            "ingredients": ingredients,
+            "meal_type": str(meal_type),
+            "culture": culture,
+            "high_protein": high_protein,
+            "low_carb": low_carb,
+            "sugar_free": sugar_free,
+            "low_fat": low_fat,
+            "low_sodium": low_sodium,
+        }
         chain = LLMChain(llm=llm, prompt=prompt)
-        output = chain.run({"ingredients": ingredients})
+        output = chain.run(variables)
         st.info(output)
 
 # # Nutrition Facts Generator
