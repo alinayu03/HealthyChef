@@ -42,9 +42,8 @@ low_sodium = ""
 
 col1, col2 = st.columns(2)
 
-# Optional Preferences
-culture = col2.text_input("Culture")
-meal_type = col2.radio("Meal Type", ["Any", "Breakfast", "Lunch", "Dinner", "Snack"])
+# Ingredients input
+ingredients = col1.text_area("Ingredients")
 
 col1.write("Dietary Preferences")
 high_protein = col1.checkbox("High-protein")
@@ -53,9 +52,11 @@ sugar_free = col1.checkbox("Sugar-free")
 low_fat = col1.checkbox("Low-fat")
 low_sodium = col1.checkbox("Low-sodium")
 
-# Ingredients input
-ingredients = col1.text_area("Ingredients")
-
+# Optional Preferences
+culture = col2.text_input("Culture")
+meal_type = col2.radio(
+    "Meal Type", ["Any", "Breakfast", "Lunch", "Dinner", "Snack"])
+    
 # LLM setup
 repo_id = "google/flan-ul2"
 # model_name = "gpt-3.5-turbo"
