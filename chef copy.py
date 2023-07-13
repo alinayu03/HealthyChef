@@ -4,7 +4,6 @@ from langchain.chains import LLMChain
 import pandas as pd
 import os
 import streamlit as st
-from langchain import HuggingFaceHub
 
 # Title
 st.markdown("# Healthy Chef 🧑‍🍳🍴")
@@ -19,8 +18,6 @@ Unsure about what to cook next? This site features a recipe generator. Below, yo
 st.divider()
 
 # Secret OpenAI API Key
-huggingfacehub_api_token = st.secrets["huggingfacehub_api_token"]
-
 openai_api_key = st.secrets["openai_api_key"]
 
 # User input OpenAI API Key
@@ -28,7 +25,6 @@ openai_api_key = st.secrets["openai_api_key"]
 
 # Set key
 os.environ["OPENAI_API_KEY"] = openai_api_key
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = huggingfacehub_api_token
 
 # init options
 ingredients = ""
@@ -55,12 +51,8 @@ low_sodium = col2.checkbox("Low-sodium")
 ingredients = col1.text_area("Ingredients")
 
 # LLM setup
-repo_id = "google/flan-t5-xxl"
 model_name = "gpt-3.5-turbo"
-# llm = ChatOpenAI(model_name=model_name, temperature=0.0)
-llm = HuggingFaceHub(
-    repo_id=repo_id, model_kwargs={"temperature": 0.5}
-)
+llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 
 # Recipe Generator 
 st.markdown("#### New Recipe")
