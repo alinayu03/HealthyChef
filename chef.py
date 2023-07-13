@@ -53,10 +53,10 @@ low_fat = col1.checkbox("Low-fat")
 low_sodium = col1.checkbox("Low-sodium")
 
 # Optional Preferences
-culture = col2.text_input("Culture")
+culture = col2.text_area("Culture")
 meal_type = col2.radio(
     "Meal Type", ["Any", "Breakfast", "Lunch", "Dinner", "Snack"])
-    
+
 # LLM setup
 repo_id = "google/flan-ul2"
 # model_name = "gpt-3.5-turbo"
