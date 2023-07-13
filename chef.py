@@ -23,13 +23,13 @@ with st.expander("Introduction and Instructions"):
 # Secret OpenAI API Key
 huggingfacehub_api_token = st.secrets["huggingfacehub_api_token"]
 
-# openai_api_key = st.secrets["openai_api_key"]
+openai_api_key = st.secrets["openai_api_key"]
 
 # User input OpenAI API Key
 # openai_api_key = col2.text_input("OpenAI API Key", type="password")
 
 # Set key
-# os.environ["OPENAI_API_KEY"] = openai_api_key
+os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = huggingfacehub_api_token
 
 # init options
@@ -60,12 +60,12 @@ meal_type = col2.radio(
     "Meal Type", ["Any", "Breakfast", "Lunch", "Dinner", "Snack"])
 
 # LLM setup
-repo_id = "Writer/camel-5b-hf"
-# model_name = "gpt-3.5-turbo"
-# llm = ChatOpenAI(model_name=model_name, temperature=0.0)
-llm = HuggingFaceHub(
-    repo_id=repo_id
-)
+# repo_id = "Writer/camel-5b-hf"
+model_name = "gpt-3.5-turbo"
+llm = ChatOpenAI(model_name=model_name, temperature=0.0)
+# llm = HuggingFaceHub(
+#     repo_id=repo_id
+# )
 
 # Recipe Generator 
 template = """
