@@ -14,12 +14,10 @@ st.divider()
 openai_api_key = st.secrets["openai_api_key"]
 
 # User input OpenAI API Key
-# openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+# openai_api_key = col2.text_input("OpenAI API Key", type="password")
 
 # Set key
 os.environ["OPENAI_API_KEY"] = openai_api_key
-
-st.divider()
 
 # init options
 ingredients = ""
@@ -31,17 +29,19 @@ sugar_free = ""
 low_fat = ""
 low_sodium = ""
 
+col1, col2 = st.columns(2)
+
 # Optional Preferences
-meal_type = st.sidebar.radio("Meal Type", ["Breakfast", "Lunch", "Dinner", "Snack"])
-culture = st.sidebar.text_input("Culture")
-high_protein = st.sidebar.checkbox("High-protein")
-low_carb = st.sidebar.checkbox("Low-carb")
-sugar_free = st.sidebar.checkbox("Sugar-free")
-low_fat = st.sidebar.checkbox("Low-fat")
-low_sodium = st.sidebar.checkbox("Low-sodium")
+meal_type = col2.radio("Meal Type", ["Breakfast", "Lunch", "Dinner", "Snack"])
+culture = col2.text_input("Culture")
+high_protein = col2.checkbox("High-protein")
+low_carb = col2.checkbox("Low-carb")
+sugar_free = col2.checkbox("Sugar-free")
+low_fat = col2.checkbox("Low-fat")
+low_sodium = col2.checkbox("Low-sodium")
 
 # Ingredients input
-ingredients = st.text_area("Enter ingredients list")
+ingredients = col1.text_area("Enter ingredients list")
 
 # LLM setup
 model_name = "gpt-3.5-turbo"
