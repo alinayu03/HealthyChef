@@ -120,7 +120,7 @@ st.write(
 
 Managing Cancer Treatment Side-effects that affect nutrition: https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss/nutrition-pdq#_177.
 
-Information on nutrition: https://www.cancer.org/cancer/survivorship/coping/nutrition/benefits.html” (2022). American Cancer Society. 
+Information on nutrition: https://www.cancer.org/cancer/survivorship/coping/nutrition/benefits.html” 
 
 Pamphlet from the American Cancer Society https://www.cancer.org/content/dam/cancer-org/cancer-control/en/booklets-flyers/nutrition-for-the-patient-with-cancer-during-treatment.pdf.
 
