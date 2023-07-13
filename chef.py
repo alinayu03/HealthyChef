@@ -105,7 +105,7 @@ if st.button("Create New Recipe", key="prompt_chain_button"):
         output = chain.run(variables)
         st.info(output)
 
-st.divider
+st.divider()
 
 # Nutrition Search
 st.markdown("## Nutrition Search")
@@ -133,7 +133,7 @@ st.write("Daily Recommended Macronutrients")
 image = "macros.jpg"
 st.image(image, use_column_width=True)
 
-st.divider
+st.divider()
 
 # Additional info
 st.markdown("## Additional Resources")
