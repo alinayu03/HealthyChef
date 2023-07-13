@@ -65,6 +65,8 @@ ingredients = st.text_area("Enter ingredients list")
 model_name = "gpt-3.5-turbo"
 llm = ChatOpenAI(model_name=model_name, temperature=0.0)
 
+st.write(meal_type)
+
 # Recipe Generator 
 st.markdown("#### New Recipe")
 template = """
