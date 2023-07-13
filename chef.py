@@ -129,7 +129,7 @@ st.dataframe(df)
 
 # Recommended daily macros
 
-st.write("Daily Recommended Macros")
+st.write("Daily Recommended Macronutrients")
 image = "macros.jpg"
 st.image(image, use_column_width=True)
 
