@@ -6,7 +6,7 @@ import os
 import streamlit as st
 
 # Title
-st.markdown("# Healthy Chef")
+st.markdown("# Healthy Chef 🧑‍🍳🍴")
 st.markdown("""###
 What you eat affects how you feel, and eating healthy and enough helps your body function at its best, especially when you have cancer. Proper nutrition is a key part of your cancer treatment and recovery. During treatment, you might need more calories and protein to help your body maintain weight, heal as quickly as possible, and fight infection. 
 
