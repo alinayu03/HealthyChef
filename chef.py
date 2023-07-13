@@ -112,6 +112,13 @@ if st.button("Search"):
 # Display dataset
 st.dataframe(df)
 
+
+# Recommended daily macros
+
+st.markdown("## Daily Recommended Macros")
+image = "macros.jpg"
+st.image(image, use_column_width=True)
+
 # Nutrition Info
 st.markdown("## Additional Resources")
 
