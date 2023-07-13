@@ -53,7 +53,7 @@ template = """
         Task: Generate Healthy Recipes with Nutrition Facts based on a list of ingredients
         Ingredient List: {ingredients}"""
 
-output = ""
+outputs = []
 
 # Recipe Generator Button
 if col1.button("Run", key="prompt_chain_button"):
@@ -64,12 +64,14 @@ if col1.button("Run", key="prompt_chain_button"):
         )
         chain = LLMChain(llm=llm, prompt=prompt)
         output = chain.run({"ingredients": ingredients})
+        outputs.append(output)
         col1.info(output)
 
 col2.markdown("#### Saved Recipes")
 if col2.button("Save", key="save-button"):
     with st.spinner("Running"):
-        col2.write(output)
+        for output in outputs:
+            col2.info(output)
 
 # # Nutrition Facts Generator
 # col2.markdown("#### Ingredients List Nutrition Facts")
