@@ -13,7 +13,7 @@ with st.expander("Introduction and Instructions"):
     st.write("""
     What you eat affects how you feel, and eating healthy and enough helps your body function at its best, especially when you have cancer. Proper nutrition is a key part of your cancer treatment and recovery. During treatment, you might need more calories and protein to help your body maintain weight, heal as quickly as possible, and fight infection. 
 
-    We know that eating well can be challenging when you have cancer as it may become difficult to follow your usual diet, you might develop side effects that affect your appetite once you start treatment, or it might become difficult financially to access healthy groceries. The Food to Overcome Outcomes Disparities (FOOD) Program through the Immigrant Health and Cancer Disparities Service at Memorial Sloan Kettering aims to provide you with the nutritional support to guide you during your cancer journey and reduce nutrition gaps among the medically underserved.
+    We know that eating well can be challenging when you have cancer as it may become difficult to follow your usual diet, you might develop side effects that affect your appetite once you start treatment, or it might become difficult financially to access healthy groceries.
 
     Unsure about what to cook next? This site features a recipe generator. Below, you can input ingredients you receive from our food pantries to get inspired for your next meal. 
 
